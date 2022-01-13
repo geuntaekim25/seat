@@ -1,0 +1,407 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+html,body {
+  height: 100%;
+}
+body {
+  background-color: black;
+  background-image: url("images/background.png");
+  background-attachment: fixed;
+}
+h1 {
+  display: block;
+  font-family: 'Black Han Sans', sans-serif;
+  height: 60px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-weight: 100;
+  font-size: 48px;
+  color: #2F343D;
+  text-shadow: 0px 0px 3px black;
+}
+input:focus {
+  outline: none;
+}
+.button {
+  width: 120px;
+  height:49px;
+  cursor: pointer;
+  vertical-align: top;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.bigbutton {
+  width: 200px;
+  height: 65px;
+  cursor: pointer;
+  vertical-align: top;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.buttoncore {
+  display: none;
+}
+.infobutton {background-image: url("images/btn_info.png");}
+.malebutton.on {background-image: url("images/btn_male_activated.png");}
+.malebutton.off {background-image: url("images/btn_male.png");}
+.constbutton.on {background-image: url("images/btn_const_activated.png");}
+.constbutton.off {background-image: url("images/btn_const.png");}
+.changebutton {background-image: url("images/btn_change.png");}
+.createbutton {background-image: url("images/btn_create.png");}
+.removebutton {background-image: url("images/btn_remove.png");}
+.savebutton {background-image: url("images/btn_save.png");}
+td {
+  margin: 2px;
+  border: none;
+}
+.table {
+  margin: 15px;
+  display:inline-block;
+  vertical-align: top;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+}
+.normal {
+  box-shadow: 0px 0px 15px white inset;
+  border: 5px solid white;
+  color:white;
+}
+.normal_empty {
+  border: 5px solid #4E4E4E;
+  color: #4E4E4E;
+}
+.male {
+  box-shadow: 0px 0px 15px #01EAFB inset;
+  border: 5px solid #01EAFB;
+  color: #01EAFB;
+}
+.male_empty {
+  border: 5px solid #005B61;
+  color: #005B61;
+}
+.female {
+  box-shadow: 0px 0px 15px #FB61A4 inset;
+  border: 5px solid #FB61A4;
+  color:#FB61A4;
+}
+.female_empty {
+  border: 5px solid #4C0033;
+  color: #4C0033;
+}
+  .const {
+    box-shadow: 0px 0px 15px #FAE25D inset;
+    border: 5px solid #FAE25D;
+    color: #FAE25D;
+}
+.const_empty {
+  border: 5px solid #393100;
+  color: #393100;
+}
+.cell {
+  width:90px;
+  height:45px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 5px;
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: transparent;
+}
+.main {
+  display: block;
+  white-space: nowrap; /* 표 줄바뀜 방지 */
+  text-align: center;
+  overflow: auto;
+  width: 100%;
+  height: calc(100% - 195px);
+  max-width: 100%;
+  box-shadow: 0px 0px 30px white;
+}
+.sleep {
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+#sleep_title {
+  font-family: "Jua", sans-serif;
+  font-size: 28px;
+  color: white;
+}
+#sleep_content {
+  font-family: "NanumSquare", sans-serif;
+  font-size: 20px;
+  color: gray;
+}
+.createbox, .removebox {
+  position: absolute;
+  width: 400px;
+  height: 100px;
+  top: calc(100% - 115px);
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background-color: black;
+  border: 3px solid #6DFFA5;
+  box-shadow: 0px 0px 7px #6DFFA5;
+  font-family: "Jua", sans-serif;
+  color: white;
+}
+.removebox {
+  border: 3px solid #FF5B96;
+  box-shadow: 0px 0px 7px #FF5B96;
+}
+.x_button span:nth-child(1), .x_button span:nth-child(2) {
+  width: 25px;
+  height: 4px;
+  background-color: #6DFFA5;
+  box-shadow: 0px 0px 7px #6DFFA5;
+  border-radius: 3px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+.x_button span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.x_button span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+.removebox .x_button span {
+  background-color: #FF5B96;
+  box-shadow: 0px 0px 7px #FF5B96;
+}
+.createbox_title, .removebox_title {
+  font-family: "Jua", sans-serif;
+  font-size: 20px;
+  color: #B9FFD4;
+}
+.removebox_title {color: #FFB3CE;}
+.createbox_msg, .removebox_msg {
+  font-family: "NanumSquare", sans-serif;
+  height: 20px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.createbox_input, .removebox_input {
+  width: 150px;
+  height: 30px;
+  background-color: black;
+  border: 2px solid #6DFFA5;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #6DFFA5;
+  font-family: "Jua", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+.removebox_input {
+  border: 2px solid #FF5B96;
+  box-shadow: 0px 0px 5px #FF5B96;
+}
+.createbox_button, .removebox_button {
+  margin-left: 20px;
+  width: 74px;
+  height: 34px;
+  background-color: black;
+  border: 2px solid #6DFFA5;
+  box-shadow: 0px 0px 5px #6DFFA5;
+  font-family: "Jua", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+.removebox_button {
+  border: 2px solid #FF5B96;
+  box-shadow: 0px 0px 5px #FF5B96;
+}
+.menu {
+  display: block;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  height: 75px;
+}
+.tip {
+  display: block;
+  width: 100%;
+  height: 35px;
+  font-size: 22px;
+  font-family: 'Jua', sans-serif;
+  text-align: center;
+  color: white;
+  padding-top: 5px;
+}
+.layout {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.main::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.main::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+.main::-webkit-scrollbar-track {
+  background-color: grey;
+  box-shadow: 0px 0px 5px black inset;
+}
+.main::-webkit-scrollbar-corner {
+  display: none;
+}
+/* Animation */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes fadeIn2 {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes fadeIn3 {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes blink {
+  from {opacity: 0.6;}
+  to {opacity: 1;}
+}
+@keyframes h1LeftIntro {
+  from {text-shadow: 0px 0px 3px black;}
+  to {text-shadow: 0px 0px 3px #2EFEF7;}
+}
+@keyframes h1RightIntro {
+  from {text-shadow: 0px 0px 3px black;}
+  to {text-shadow: 0px 0px 3px #F7D358;}
+}
+@keyframes h1LeftIntro{
+  0% {color: #2F343D; text-shadow: black;}
+  50% {color: #2F343D; text-shadow: black;}
+  60% {color: #2EFEF7; text-shadow: #2EFEF7;}
+  70% {color: #2F343D; text-shadow: black;}
+  80% {color: #2EFEF7; text-shadow: #2EFEF7;}
+  90% {color: #2F343D; text-shadow: black;}
+  100% {color: #2EFEF7; text-shadow: #2EFEF7;}
+}
+@keyframes h1LeftColor{
+  0% {color: #2EFEF7; text-shadow: #2EFEF7;}/*하늘색*/
+  15% {color: #2EFEF7; text-shadow: #2EFEF7;}
+  16% {color: #2F343D; text-shadow: black;}
+  17% {color: #00FF80; text-shadow: #00FF80;}/*초록색*/
+  48% {color: #00FF80; text-shadow: #00FF80;}
+  49% {color: #2F343D; text-shadow: black;}
+  50% {color: #BF00FF; text-shadow: #BF00FF;}/*보라색*/
+  82% {color: #BF00FF; text-shadow: #BF00FF;}
+  83% {color: #2F343D; text-shadow: black;}
+  84% {color: #2EFEF7; text-shadow: #2EFEF7;}/*하늘색*/
+  100% {color: #2EFEF7; text-shadow: #2EFEF7;}
+}
+@keyframes h1RightIntro{
+  0% {color: #2F343D; text-shadow: black;}
+  50% {color: #2F343D; text-shadow: black;}
+  60% {color: #F7D358; text-shadow: #F7D358;}
+  70% {color: #2F343D; text-shadow: black;}
+  80% {color: #F7D358; text-shadow: #F7D358;}
+  90% {color: #2F343D; text-shadow:  black;}
+  100% {color: #F7D358; text-shadow: #F7D358;}
+}
+@keyframes h1RightColor{
+  0% {color: #F7D358; text-shadow: #F7D358;}/*노란색*/
+  31% {color: #F7D358; text-shadow: #F7D358;}
+  32% {color: #2F343D; text-shadow: black;}
+  33% {color: #FA5858; text-shadow: #FA5858;}/*빨간색*/
+  65% {color: #FA5858; text-shadow: #FA5858;}
+  66% {color: #2F343D; text-shadow: black;}
+  67% {color: #FE2EC8; text-shadow: #FE2EC8;}/*분홍색*/
+  98% {color: #FE2EC8; text-shadow: #FE2EC8;}
+  99% {color: #2F343D; text-shadow: black;}
+  100% {color: #F7D358; text-shadow: #F7D358;}/*노란색*/
+}
+@keyframes spark{
+  from {text-shadow: 0px 0px 3px;}
+  end {text-shadow: 0px 0px 15px;}
+}
+#h1_left {
+animation: blink 0.075s 10, h1LeftIntro 1.5s, h1LeftColor 150s 1.5s infinite, spark 5s 1.5s infinite alternate;
+}
+#h1_right {
+animation: blink 0.075s 10, h1RightIntro 1.5s, h1RightColor 150s 1.5s infinite, spark 5s 1.5s infinite alternate;
+}
+.normal {
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+}
+.male {
+  animation-name: fadeIn2;
+  animation-duration: 0.5s;
+}
+.const {
+  animation-name: fadeIn3;
+  animation-duration: 0.5s;
+}
+@media all and (max-width: 1000px) {
+  .button {
+    width: 90px;
+    height:36px;
+    cursor: pointer;
+    vertical-align: top;
+  }
+  .bigbutton {
+    width: 150px;
+    height: 49px;
+    cursor: pointer;
+  }
+  .tip {
+    font-size: 18px;
+    height: 30px;
+  }
+  .menu {
+    height: 55px;
+  }
+  .main {
+    height: calc(100% - 163px);
+  }
+  h1 {
+    padding-top: 10px;
+    padding-bottom: 3px;
+    height: 50px;
+    font-size: 42px;
+  }
+}
+@media all and (max-width: 730px) {
+  .infobutton {background-image: url("images/mbtn_info.png");}
+  .malebutton.on {background-image: url("images/mbtn_male_activated.png") !important;}
+  .malebutton.off {background-image: url("images/mbtn_male.png") !important;}
+  .constbutton.on {background-image: url("images/mbtn_const_activated.png") !important;}
+  .constbutton.off {background-image: url("images/mbtn_const.png") !important;}
+  .changebutton {background-image: url("images/mbtn_change.png");}
+  .createbutton {background-image: url("images/mbtn_create.png");}
+  .removebutton {background-image: url("images/mbtn_remove.png");}
+  .savebutton {background-image: url("images/mbtn_save.png");}
+  .button, .bigbutton {
+    width: 98px;
+    height: 40px;
+    margin-bottom: 5px;
+  }
+  .tip {
+    height: 5px;
+    visibility: hidden;
+  }
+  .menu {
+    height: 85px;
+  }
+}
+@media all and (max-width: 420px) {
+  .button, .bigbutton {
+    width: 23vw;
+    height: 9.42vw;
+    margin-bottom: 1vw;
+  }
+}
